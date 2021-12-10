@@ -62,6 +62,7 @@ namespace InterfazApi
             this.ClientSize = new System.Drawing.Size(836, 647);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

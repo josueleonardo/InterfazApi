@@ -52,20 +52,18 @@ namespace InterfazApi
             Product product = new Product();
             Model model = new Model();
 
+            product.id = product.id + 1;
             product.name = textBox1.Text;
             product.code = textBox2.Text;
             product.url_image = textBox3.Text;
-
-
 
             for (int fila = 0; fila < dataGridView1.Rows.Count - 1; fila++)
             {
                 model.value = dataGridView1.Rows[fila].Cells[0].Value.ToString();
                 model.name = dataGridView1.Rows[fila].Cells[1].Value.ToString();
-                //model.stock = Convert.ToInt32(dataGridView1.Rows[fila].Cells[2].Value);
+                model.stock = Convert.ToInt32(dataGridView1.Rows[fila].Cells[2].Value);
                 product.models.Add(model);
             }
-
             clearWindow();
         }
 

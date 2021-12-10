@@ -25,7 +25,7 @@ namespace InterfazApi
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             random = new Random();
-
+            label2.Text = " ";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace InterfazApi
         private async Task<Product> GetProduct()
         {
             Product product = null;
-            int random_id = random.Next(1);
+            int random_id = random.Next(4);
             HttpResponseMessage response = await client.GetAsync("api/products/"+random_id);
             if (response.IsSuccessStatusCode)
             {
@@ -56,9 +56,10 @@ namespace InterfazApi
         private async void button3_Click(object sender, EventArgs e)
         {
             Product product = await GetProduct();
+
             if(product != null)
             {
-                pictureBox1.Load(product.url_image);
+                pictureBox1.LoadAsync(product.url_image);
                 label2.Text = product.code;
             }
         }
